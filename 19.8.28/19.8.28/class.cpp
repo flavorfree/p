@@ -10,7 +10,6 @@ public:
 	int a;
 	double b;
 	char c;
-
 	void printA()
 	{
 		printf("%d\n", a);
@@ -27,6 +26,7 @@ int main()
 	ct c;//实例化对象
 	c.a = 4;
 	c.printA();
+
 	cout << sizeof(ct) << endl;
 
 	system("pause");
