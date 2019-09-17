@@ -21,7 +21,7 @@ public:
 	}
 };
 
-int main()
+int main1 ()
 {
 	ct c;//实例化对象
 	c.a = 4;

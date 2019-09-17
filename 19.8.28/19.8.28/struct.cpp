@@ -5,8 +5,9 @@ using namespace std;
 
 struct A1
 {
-	int a;
-	double b;
+	char a;
+	//int a;
+	//double b;
 };
 struct A2
 {
@@ -30,7 +31,7 @@ void A3::printB()//指定用A3的域
 	printf("%.2lf\n", b);
 }
 
-int main2()
+int main()
 {
 	printf("%d %d %d\n", sizeof(A1), sizeof(A2), sizeof(A3));//16,24,16
 
