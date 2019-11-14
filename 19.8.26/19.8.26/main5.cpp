@@ -33,7 +33,7 @@ using namespace std;
 //	return 0; 
 //}
 
-int main()
+int main5()
 {
 	int x = 10; 
 	auto a = &x;
