@@ -19,6 +19,6 @@ public:
 			A = sum;
 			B = carry;
 		}
-		return sum;
+		return A;
 	}
 };
