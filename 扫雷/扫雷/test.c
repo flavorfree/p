@@ -101,7 +101,7 @@ void UpdateShowMa(char show_map[ROW][COL], char mine_map[ROW][COL], int i, int j
 	{
 		count++;
 	}
-	if (j + 1 < COL && mine_map[i][j - 1] == '1')
+	if (j + 1 < COL && mine_map[i][j + 1] == '1')
 	{
 		count++;
 	}
@@ -113,7 +113,7 @@ void UpdateShowMa(char show_map[ROW][COL], char mine_map[ROW][COL], int i, int j
 	{
 		count++;
 	}
-	if (i + 1 < ROW && j + 1 >= COL && mine_map[i + 1][j + 1] == '1')
+	if (i + 1 < ROW && j + 1 < COL && mine_map[i + 1][j + 1] == '1')
 	{
 		count++;
 	}
@@ -128,7 +128,7 @@ void game()
 	//1.创建两个二维数组
 	char show_map[ROW][COL];
 	char mine_map[ROW][COL];
-	//2.随两个二维数组进行初始化
+	//2.对两个二维数组进行初始化
 	Init(show_map, mine_map); 
 	int blank_count = 0;
 	while (1)
