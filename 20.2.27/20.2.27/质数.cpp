@@ -4,7 +4,7 @@
 #include<math.h>
 using namespace std;
 
-int main()
+int main2()
 {
 	int i;
 	int j;

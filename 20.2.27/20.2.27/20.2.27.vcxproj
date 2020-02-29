@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="3.c" />
     <ClCompile Include="简易加密.cpp" />
     <ClCompile Include="质数.cpp" />
   </ItemGroup>
