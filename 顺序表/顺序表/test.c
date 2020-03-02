@@ -6,6 +6,7 @@ void SeqListTest()
 {
 	SeqList s;
 	SeqListInit(&s);
+
 	SeqListPushBack(&s, 0);
 	SeqListPushBack(&s, 1);
 	SeqListPushBack(&s, 2);

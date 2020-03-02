@@ -3,7 +3,7 @@
 #include"SeqList.h"
 #include<assert.h>
 
-void SeqListInit(SeqList* ps)
+void SeqListInit(SeqList* ps)//循序表初始化
 {
 	assert(ps);
 
@@ -12,7 +12,7 @@ void SeqListInit(SeqList* ps)
 	ps->capacity = 0;
 }
 
-void SeqListDestory(SeqList* ps)
+void SeqListDestory(SeqList* ps)//清除循序表
 {
 	assert(ps);
 	free(ps->a);
