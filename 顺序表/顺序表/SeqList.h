@@ -3,13 +3,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef int SLDataType;
+typedef int SLDataType;//存储单元类型
 
 typedef struct
 {
-	SLDataType* a;
-	size_t size;
-	size_t capacity;
+	SLDataType* a;//存储空间基地址，类似于数组首地址
+	size_t size;//顺序表长度
+	size_t capacity;//当前分配的存储容量
 
 }SeqList;
 
