@@ -5,12 +5,11 @@
 
 typedef int SLDataType;//存储单元类型
 
-typedef struct
+typedef struct SeqList
 {
 	SLDataType* a;//存储空间基地址，类似于数组首地址
 	size_t size;//顺序表长度
 	size_t capacity;//当前分配的存储容量
-
 }SeqList;
 
 void SeqListInit(SeqList* ps);//初始化
