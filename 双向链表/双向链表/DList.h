@@ -5,8 +5,7 @@
 #include<assert.h>
 
 typedef int LTDataType;
-
-typedef struct
+typedef struct ListNode
 {
 	struct ListNode* prev;//前一个
 	struct ListNode* next;//后一个
