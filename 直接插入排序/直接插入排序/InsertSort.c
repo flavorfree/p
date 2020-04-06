@@ -7,8 +7,8 @@ void InsertSort(int* a, int n)
 {
 	for (int i = 0; i < n - 1; i++)
 	{
-		int end = i;
-		int tmp=a[end+1];
+		int end = i;//有序序列里最后一个数据
+		int tmp=a[end+1];//待插入进有序序列的数据
 		while (end >= 0)
 		{
 			if (a[end] > tmp)
