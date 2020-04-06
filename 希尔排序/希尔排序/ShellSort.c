@@ -32,7 +32,6 @@ void ShellSort(int* a, int n)
 			a[end + gap] = tmp;
 		}
 	}
-
 }
 
 int main()
