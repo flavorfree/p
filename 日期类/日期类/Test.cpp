@@ -202,7 +202,25 @@ public:
 		return ret;
 	}
 
-	int operator - (const Date& d);//d1-d2
+	int operator - (const Date& d)//d1-d2
+	{
+		int flag = 1;
+		Date max = *this;//¿½±´¹¹Ôì
+		Date min = d;
+		if (min > max)
+		{
+			max = d;	//operator=
+			min = *this;
+			flag = -1;
+		}
+		int n = 0;
+		while (max != min)
+		{
+			++min;
+			++n;
+		}
+		return n*flag;
+	}
 
 	void Print()
 	{
@@ -236,6 +254,8 @@ int main()
 
 	Date d4 = d2 + 1000;
 	d4.Print();
+
+	
 
 	system("pause");
 	return 0;
