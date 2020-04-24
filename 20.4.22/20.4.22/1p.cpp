@@ -14,6 +14,11 @@ public:
 		sum += i;
 		i++;
 	}
+	static void Init()
+	{
+		sum = 0;
+		i = 1;
+	}
 	static int DateSum()
 	{
 		return sum;
@@ -32,7 +37,9 @@ class Solution
 public:
 	int Sum_Solutio(int n)
 	{
-		Sum a[5];
+		Sum::Init();
+		//Sum a[n];//C++99Ð´·¨
+		Sum* a = new Sum[n];
 		return Sum::DateSum();
 	}
 };
