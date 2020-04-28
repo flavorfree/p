@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void Swap(int* p1, int* p2)
+void Swap1(int* p1, int* p2)
 {
 	int tmp = *p1;
 	*p1 = *p2;
@@ -20,7 +20,7 @@ void ShellSort(int* a, int n)
 		{
 			while(a[i]>a[i + gap])
 			{
-				Swap(&a[i], &a[i + gap]);
+				Swap1(&a[i], &a[i + gap]);
 				i -= gap;
 				if (i < 0)
 					break;
@@ -29,7 +29,7 @@ void ShellSort(int* a, int n)
 	}
 }
 
-int main()
+int main2()
 {
 	int a[] = { 2, 9, 6, 1, 5, 3, 8, 4, 7 };
 	ShellSort(a, sizeof(a) / sizeof(int));

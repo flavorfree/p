@@ -64,6 +64,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CelectSort.c" />
+    <ClCompile Include="HeapSort.c" />
     <ClCompile Include="InsertSort.c" />
     <ClCompile Include="ShellSort.c" />
   </ItemGroup>

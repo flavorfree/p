@@ -21,5 +21,11 @@
     <ClCompile Include="ShellSort.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CelectSort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HeapSort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
