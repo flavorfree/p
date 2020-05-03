@@ -68,6 +68,7 @@
     <ClCompile Include="CelectSort.c" />
     <ClCompile Include="HeapSort.c" />
     <ClCompile Include="InsertSort.c" />
+    <ClCompile Include="QuickSort.c" />
     <ClCompile Include="ShellSort.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
