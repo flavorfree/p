@@ -31,7 +31,7 @@ void QuickSort(int* a, int begin, int end)
 	QuickSort(a, tmp + 1, end);
 }
 
-int main()
+int main6()
 {
 	int a[] = { 7, 2, 6, 1, 5, 3, 8, 4, 9 };
 	QuickSort(a, 0, sizeof(a) / sizeof(int)-1);
