@@ -14,35 +14,23 @@ int main()
 	nums.push_back(2);
 	nums.push_back(5);
 
-	int val;
-	for (size_t i = 0; i < nums.size(); i++)
+	int val = 0;
+	for (int i = 0; i < nums.size(); i++)
 	{
 		val ^= nums[i];
 	}
 
-	int bit;
-	for (int i = 0; i < 32; i++)
-	{
-		int a = val >> i;
-		if (a & 1)
-		{
-			bit = i;
-			break;
-		}
-	}
+	int bit = val & (~(val - 1));
 
-	size_t val1, val2;
-	for (size_t i = 0; i < nums.size(); i++)
+	vector<int> v1(2);
+
+	for (auto i : nums)
 	{
-		if ((nums[i] >> bit) & 1)
-			val1 = val ^ nums[i];
+		if (i & bit)
+			v1[0] ^= i;
 		else
-			val2 = val ^ nums[i];
+			v1[1] ^= i;
 	}
-
-	vector<int> v1;
-	v1.push_back(val1);
-	v1.push_back(val2);
 
 	for (size_t i = 0; i < v1.size(); i++)
 		cout << v1[i] << " ";
