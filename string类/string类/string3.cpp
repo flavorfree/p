@@ -21,6 +21,10 @@ namespace zd
 		{
 			return _str;
 		}
+		const_iterator end() const
+		{
+			return _str+_size;
+		}
 
 		iterator begin()
 		{
@@ -34,7 +38,7 @@ namespace zd
 		/*string()
 			:_str(new char[1])
 		{
-			*_str = '\0';
+			*_str = '\0'; 
 		}*/
 		string(const char* str = "")	//构造函数
 			:_str(new char[strlen(str) + 1])
@@ -88,12 +92,12 @@ namespace zd
 			return _str[pos];
 		}
 
-		size_t size()
+		size_t size() const
 		{
 			return _size;
 		}
 
-		size_t capacity()
+		size_t capacity() const
 		{
 			return _capacity;
 		}
@@ -136,19 +140,19 @@ namespace zd
 			_size += len;
 		}
 
-		const string& operator += (char ch)
+		string& operator += (char ch)	//s1 += 'a'
 		{
 			push_back(ch);
 			return *this;
 		}
 
-		const string& operator += (char* ch)
+		string& operator += (char* ch)
 		{
 			append(ch);
 			return *this;
 		}
 
-		const string& operator += (const string& s)
+		string& operator += (const string& s)
 		{
 			append(s._str);
 			return *this;
@@ -166,7 +170,10 @@ namespace zd
 			assert(pos <= _size);
 			if (_size == _capacity)
 			{
-				reserve(_capacity * 2);
+				if (_capacity == 0)
+					reserve(8);
+				else
+					reserve(_capacity * 2);
 			}
 			/*int end = _size;
 			while (end >= (int)pos)
@@ -188,12 +195,14 @@ namespace zd
 		{
 			assert(pos <= _size);
 
+			//如果空间不够先进行增容
 			size_t len = strlen(str);
 			if (_size + len >_capacity)
 			{
 				reserve(_size + len);
 			}
 
+			//挪动数据
 			int end = _size;
 			while (end >= (int)pos)
 			{
@@ -209,16 +218,158 @@ namespace zd
 			_size += len;
 		}
 
-		/*operator>
-		operator<
-		operator==
-		operator>=*/
+		void erase(size_t pos, size_t len = npos)
+		{
+			assert(pos < _size);
+
+			if (len >= _size - pos)
+			{
+				_str[pos] = '/0';
+				_size = pos;
+			}
+			else
+			{
+				size_t i = pos + len;
+				while (i <= _size)
+				{
+					_str[i - len] = _str[i];
+					++i;
+				}
+				_size -= len;
+			}
+		}
+
+		size_t find(const char* str, size_t pos = 0)	//strstr->kmp
+		{
+			char* p = strstr(_str, str);
+			if (p == nullptr)
+				return npos;
+			else
+				return p - _str;
+		}
+
+		size_t find(char ch, size_t pos = 0)
+		{
+			for (size_t i = pos; i < _size; ++i)
+			{
+				if (_str[i] == ch)
+				{
+					return i;
+				}
+			}
+			return npos;
+		}
+
+		//bool operator > (const string& s) const
+		//{
+		//	const char* str1 = _str;
+		//	const char* str2 = s._str;
+		//	while (*str1 && *str2)
+		//	{
+		//		if (*str1 > *str2)
+		//			return true;
+		//		else if (*str1 < *str2)
+		//			return false;
+		//		else
+		//			++str1, ++str2;
+		//	}
+		//	if (*str1)
+		//		return true;
+		//	else
+		//		return false;
+		//}
+
+		//bool operator == (const string& s) const
+		//{
+		//	const char* str1 = _str;
+		//	const char* str2 = s._str;
+		//	while (*str1 && *str2)
+		//	{
+		//		if (*str1 != *str2)
+		//			return false;
+		//		else
+		//			++str1, ++str2;
+		//	}
+		//	if (*str1 || *str2)
+		//		return false;
+		//	else
+		//		return true;
+		//}
+
+		bool operator<(const string& s)
+		{
+			int ret = strcmp(_str, s._str);
+			return ret == 0;
+		}
+
+		bool operator ==(const string& s)
+		{
+			int ret = strcmp(_str, s._str);
+			return ret == 0;
+		}
+
+		bool operator <= (const string& s)
+		{
+			return *this < s || *this == s;
+		}
+
+		bool operator > (const string& s)
+		{
+			return !(*this <= s);
+		}
+
+		bool operator >= (const string& s)
+		{
+			return (*this < s);
+		}
+
+		bool operator != (const string& s)
+		{
+			return !(*this == s);
+		}
+		
+		
+		
+		//getline;
+
+
 
 	private:
 		char* _str;
 		size_t _size;
-		size_t _capacity;
+		size_t _capacity; 
+
+		static size_t npos;
 	};
+
+	size_t string::npos = -1;
+
+	string operator+(const string& s1, const string& s2)
+	{
+		string ret = s1;
+		ret += s2;
+		return ret;
+	}
+
+	ostream& operator<<(ostream& out, const string& s)
+	{
+		for (size_t i = 0; i < s.size(); ++i)
+		{
+			out << s[i];
+		}
+		return out;
+	}
+
+	istream& operator >> (istream& in, string& s)
+	{
+		char ch = in.get();
+		while (ch != ' ' && ch != '\n')
+		{
+			s += ch;
+			ch = in.get();
+		}
+		return in; 
+	}
 }
 
 int main()

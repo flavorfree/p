@@ -26,11 +26,11 @@
 //		string(const string& s)		//拷贝构造，深拷贝
 //			:_str(nullptr)
 //		{
-//			string tmp(s._str);		//调用构造函数
-//			
+//			string tmp(s._str);//调用构造函数
+//			swap(_str, tmp._str);
 //		}
 //
-//		string& operator=(string& s)	//赋值重载
+//		string& operator=(string s)	//赋值重载
 //		{
 //			/*if (this != &s)
 //			{
@@ -59,6 +59,17 @@
 //
 //int main()
 //{
+//	zd::string s1("hahaha");
+//	cout << s1.c_str() << endl;
+//
+//	zd::string s2="world";
+//	cout << s2.c_str() << endl;
+//
+//	s1 = s2;
+//	cout << s1.c_str() << endl;
+//	cout << s2.c_str() << endl;
+
+
 //	zd::string s1("hello");
 //	s1[0] = 'X';
 //	cout << s1.c_str() << endl;
