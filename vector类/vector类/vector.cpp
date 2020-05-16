@@ -46,7 +46,7 @@ namespace zd
 			}
 		}
 
-		void swap(vector<T>& v)
+		void swap(vector<T>& v)	//v1.swap(v2);
 		{
 			swap(_start, v._start);
 			swap(_finish, v._finish);
