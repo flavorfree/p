@@ -327,12 +327,6 @@ namespace zd
 		{
 			return !(*this == s);
 		}
-		
-		
-		
-		//getline;
-
-
 
 	private:
 		char* _str;
