@@ -24,7 +24,7 @@ using namespace std;
 //	int i = 0;
 //	int tmp = 0;
 //	string s3 = s1;
-//	for (i; i < s3.size(); i++)
+//	for (i; i <= s3.size(); i++)
 //	{
 //		string ss;
 //		ss.clear();
